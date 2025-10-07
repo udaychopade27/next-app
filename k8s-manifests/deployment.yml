@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nextjs-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nextjs-app
@@ -15,6 +15,7 @@ spec:
       containers:
       - name: nextjs-app
         image: next-app:latest
+        imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 3000
         readinessProbe:
